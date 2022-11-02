@@ -10,12 +10,18 @@
 }
 
 .inner {
+    padding: 0 24px 0 20px;
     width: 100%;
     height: 100%;
     width: var(--default-layout-width, 1150px);
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.logo-container {
+    display: inline-flex;
+    align-items: center;
 }
 
 .logo {
@@ -99,7 +105,7 @@
     // min-height: 46px;
     border-top-right-radius: 92px;
     border-bottom-right-radius: 92px;
-    font-size: 1.8rem;
+    font-size: 1.884rem;
     color: rgba(22, 24, 35, 0.34);
 
     &:hover {
@@ -112,6 +118,23 @@
     }
 }
 
-.main {
-    width: 1000px;
+.plus-icon {
+    width: 16.93px;
+    height: 16.93px;
+    margin: 0 8px 0 0 ;
+}
+
+.actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.option-btn{
+    padding: 0 4px;
+    margin: 0 0 0 16px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
 }
