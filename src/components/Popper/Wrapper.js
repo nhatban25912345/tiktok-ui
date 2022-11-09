@@ -1,9 +1,9 @@
 import ClassNames from "classnames/bind";
-import styles from "./Propper.module.scss";
+import styles from "./Popper.module.scss";
 
 const cx = ClassNames.bind(styles);
 
-function wrapper({children}) {
+function Wrapper({children}) {
     return ( 
         <div className={cx('wrapper')}>
             {children}
@@ -11,4 +11,4 @@ function wrapper({children}) {
     );
 }
 
-export default wrapper;
+export default Wrapper;

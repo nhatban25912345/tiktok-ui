@@ -1,0 +1,62 @@
+.menu-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 223px;
+    margin-right: 20px;
+}
+
+.menu-popper {
+    margin-top: 2px;
+    padding: 8px 0;
+}
+
+.menu-item {
+    margin-right: 0;
+    padding: 10px 8px 10px 16px;
+    width: 223px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #161823; // can check lai
+    background-color: #ffffff;
+    border-radius: 0;
+    display: flex;
+    cursor: pointer;
+
+    span {
+        color: #161823;
+    }
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);;
+    }
+}
+
+.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+// Header ----------------------------------------
+.header {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+}
+.header-title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.back-btn {
+    margin: 0 0 0 28px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    cursor: pointer;
+
+}

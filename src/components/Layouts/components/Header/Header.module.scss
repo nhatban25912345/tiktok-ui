@@ -39,7 +39,7 @@
     color: rgb(82, 82, 82);
     display: flex;
     border: 1.5px solid transparent;
-    
+
     input {
         flex: 1;
         height: 100%;
@@ -63,7 +63,7 @@
     }
 
     &:focus-within {
-        border-color: rgba(22, 24, 35, .2);
+        border-color: rgba(22, 24, 35, 0.2);
     }
 }
 
@@ -114,14 +114,15 @@
     }
 
     &:active {
-        background: rgba(22, 24, 35, .06);
+        background: rgba(22, 24, 35, 0.06);
     }
 }
 
+// actions-css ----------------------------------------------
 .plus-icon {
     width: 16.93px;
     height: 16.93px;
-    margin: 0 8px 0 0 ;
+    margin: 0 8px 0 0;
 }
 
 .actions {
@@ -130,11 +131,44 @@
     align-items: center;
 }
 
-.option-btn{
+.option-btn {
     padding: 0 4px;
     margin: 0 0 0 16px;
     height: 20px;
     display: inline-flex;
     align-items: center;
+    cursor: pointer;
+}
+
+// after-login ------------------------------------------
+.current-user {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-icon-message {
+    width: 26px;
+    height: 26px;
+}
+.main-icon-message-wrapper {
+    margin-top: 2px;
+    padding: 2px 3px 0 3px;
+}
+.main-icon-inbox {
+    margin: 5px 0 0 0px;
+}
+.main-icon-inbox-wrapper {
+    margin-left: 16px;
+}
+
+.user-avatar {
+    margin-left: 24px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: center no-repeat;
+    background-size: cover;
+    border-radius: 50%;
     cursor: pointer;
 }
