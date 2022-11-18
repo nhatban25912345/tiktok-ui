@@ -16,29 +16,29 @@ const cx = classNames.bind(styles);
 function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResut] = useState(true);
+    const [showResult, setShowResut] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounced) {
+        if (!debouncedValue) {
             setSearchResult([]);
             return;
         }
 
         const fetchAPI = async () => {
             setLoading(true);
-            const result = await searchService.search(debounced, 'less');
+            const result = await searchService.search(debouncedValue, 'less');
             setSearchResult(result);
 
             setLoading(false);
         };
 
         fetchAPI();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     const handleClearBtn = () => {
         setSearchValue('');
@@ -48,7 +48,6 @@ function SearchBar() {
 
     const handleHideResult = () => {
         setShowResut(false);
-        console.log(showResult);
     };
 
     const handleChange = (e) => {
@@ -108,7 +107,7 @@ export default SearchBar;
 //     try {
 //         const res = await request.get("users/search", {
 //             params: {
-//                 q: debounced,
+//                 q: debouncedValue,
 //                 type: "less"
 //             },
 //         });
