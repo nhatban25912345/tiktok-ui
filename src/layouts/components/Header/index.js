@@ -22,7 +22,7 @@ import images from '~/assets/images';
 import Button from '~/components/Button';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
-import routes from '~/config/routes';
+import config from '~/config';
 
 
 const cx = classNames.bind(styles);
@@ -104,10 +104,11 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <a href={routes.home} className={cx('logo-container')}>
+                    <a href={config.routes.home} className={cx('logo-container')}>
                         <img src={images.logo} alt="Tiktok" />
                     </a>
                 </div>
+
                 <SearchBar />
                 {currentUser ? (
                     <div className={cx('current-user')}>

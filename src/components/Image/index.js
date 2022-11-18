@@ -1,9 +1,10 @@
 import { forwardRef } from "react";
+import PropTypes from "prop-types";
 import images from "~/assets/images";
 import classNames from "classnames";
 import styles from "./Image.module.scss"
 
-function Image({className, src, alt, ...props}, ref) {
+const Image = forwardRef(({className, src, alt, ...props}, ref) => {
     
     const fallback = images.noImage;
     if (src === undefined) {
@@ -25,6 +26,12 @@ function Image({className, src, alt, ...props}, ref) {
             // onError={handleError}
         />
     )
+})
+
+Image.propTypes = {
+    className: PropTypes.string, 
+    src: PropTypes.string, 
+    alt: PropTypes.string,
 }
 
-export default forwardRef(Image);
+export default Image;
