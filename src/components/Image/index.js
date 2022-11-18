@@ -11,7 +11,8 @@ function Image({className, src, alt, ...props}, ref) {
     }
     // const [fallback, setFallback] = useState("");
     // const handleError = () => {
-    //     setFallback(images.noImage);
+    //     // setFallback(images.noImage);
+    //     console.log("onError");
     // }
 
     return (

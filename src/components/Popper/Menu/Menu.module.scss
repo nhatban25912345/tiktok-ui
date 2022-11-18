@@ -8,6 +8,12 @@
 .menu-popper {
     margin-top: 2px;
     padding: 8px 0;
+    overflow-x: hidden;
+}
+
+.menu-body {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .menu-item {
@@ -16,7 +22,7 @@
     width: 223px;
     font-weight: 600;
     font-size: 16px;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--default-font-family);
     line-height: 22px;
     color: #161823; // can check lai
     background-color: #ffffff;
@@ -39,6 +45,7 @@
 
 // Header ----------------------------------------
 .header {
+    flex-shrink: 0;
     width: 100%;
     display: inline-flex;
     flex-wrap: wrap;

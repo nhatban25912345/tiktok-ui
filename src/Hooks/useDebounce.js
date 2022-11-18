@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 function useDebounce(value, delay) {
     const [debounceValue, setDebounceValue] = useState(value);
-    console.log('re-render 2');
     useEffect(() => {
         const handle = setTimeout(() => {
             setDebounceValue(value);

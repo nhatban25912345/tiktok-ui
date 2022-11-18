@@ -22,6 +22,8 @@ import images from '~/assets/images';
 import Button from '~/components/Button';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import routes from '~/config/routes';
+
 
 const cx = classNames.bind(styles);
 
@@ -39,7 +41,7 @@ const MENU_ITEMS = [
                 {
                     code: 'vi',
                     title: 'Tiếng việt',
-                },
+                }
             ],
         },
     },
@@ -102,7 +104,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <a href="/" className={cx('logo-container')}>
+                    <a href={routes.home} className={cx('logo-container')}>
                         <img src={images.logo} alt="Tiktok" />
                     </a>
                 </div>
@@ -128,7 +130,7 @@ function Header() {
                             </div>
                         </Tippy>
 
-                        <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={HandleMenuChange}>
+                        <Menu items={currentUser ? userMenu : MENU_ITEMS} hideOnClick={false} onChange={HandleMenuChange}>
                             <Image
                                 className={cx('user-avatar')}
                                 src="https://yt3.ggpht.com/yti/AJo0G0mEPLDRODB1rwerRndwLi5IN4NNVTwYItPIiSu7rA=s108-c-k-c0x00ffffff-no-rj"
