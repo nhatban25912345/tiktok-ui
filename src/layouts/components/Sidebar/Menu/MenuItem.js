@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import classNames from "classnames/bind";
 import styles from "./Menu.module.scss";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation  } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function MenuItem({title, to, icon, activeIcon}) {
+    const location = useLocation();
+    const isActive = location.pathname === to;
+
     return ( 
-        <NavLink className={(nav) => cx("menu-item", {active: nav.isActive})} to={to}>
-            <span className={cx("icon")}>{icon}</span>
-            <span className={cx("active-icon")}>{activeIcon}</span>
+        <NavLink className={cx("menu-item", { active: isActive })} to={to}>
+            <span className='text-[32px]'>{isActive ? activeIcon : icon}</span>
             <span className={cx("title")}>{title}</span>
         </NavLink>
     );
@@ -22,4 +24,3 @@ MenuItem.propTypes = {
 }
 
 export default MenuItem;
-

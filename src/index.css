@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-line-border {
+        @apply min-w-[96px] h-9 px-5 py-1 
+        rounded-[2px] border-[#fe2c55] border 
+        inline-flex justify-center items-center
+        text-[#fe2c55] font-semibold
+        hover:bg-[#fe2c5514];
+    }
+    
+}

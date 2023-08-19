@@ -13,7 +13,7 @@
         flex: 1;
         height: 100%;
         padding-right: 40px;
-        font-size: 1.6rem;
+        font-size: 1rem;
         caret-color: var(--primary);
         background-color: transparent;
         font-family: var(--default-font-family);
@@ -84,10 +84,12 @@
 }
 
 .search-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 -1px 0 0;
     width: 52px;
     height: 100%;
-    // min-height: 46px;
     border-top-right-radius: 92px;
     border-bottom-right-radius: 92px;
     font-size: 1.884rem;

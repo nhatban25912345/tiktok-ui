@@ -1,17 +1,14 @@
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
-import VideoCard from '~/layouts/components/VideoCard/VideoCard';
 
 const cx = classNames.bind(styles);
 
-function Home() {
+function VideoCard() {
     return (
         <div className={cx("wrapper")}>
-            <VideoCard />
-            <VideoCard />
-            <VideoCard />
+            
         </div>
     )
 }
 
-export default Home;
+export default VideoCard;

@@ -7,9 +7,10 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 8px;
-    width: 340px;
+    width: 200px;
+    max-width: 340px;
     height: 48px;
-    font-size: 1.8rem;
+    font-size: 18px;
     line-height: 25px;
     font-weight: 700;
     border-radius: 4px;
@@ -24,23 +25,9 @@
     }
     &.active {
         color: var(--primary);
-
-        .icon {
-            display: none;
-        }
-
-        .active-icon {
-            display: flex;
-        }
     }
 }
 
 .title {
     margin-left: 8px;
-}
-.icon{
-    display: flex;
-}
-.active-icon {
-    display: none;
 }

@@ -136,7 +136,6 @@ function Header() {
                                 className={cx('user-avatar')}
                                 src="https://yt3.ggpht.com/yti/AJo0G0mEPLDRODB1rwerRndwLi5IN4NNVTwYItPIiSu7rA=s108-c-k-c0x00ffffff-no-rj"
                                 alt="avatar"
-                                // fallback="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                             />
                         </Menu>
                     </div>

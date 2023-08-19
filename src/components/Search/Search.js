@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { useDebounce } from '~/hooks';
+import { useDebounce } from '~/Hooks';
 
 import * as searchService from '~/services/searchService';
 import { Wrapper as PropperWrapper } from '~/components/Popper';
@@ -102,19 +102,3 @@ function SearchBar() {
 }
 
 export default SearchBar;
-
-// const fetchAPI = async () => {
-//     try {
-//         const res = await request.get("users/search", {
-//             params: {
-//                 q: debouncedValue,
-//                 type: "less"
-//             },
-//         });
-//         setSearchResult(res.data);
-//         setLoading(false);
-//     } catch (err) {
-//         setLoading(false);
-//     }
-// }
-// fetchAPI();
