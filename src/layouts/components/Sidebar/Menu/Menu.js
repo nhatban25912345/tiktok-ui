@@ -4,9 +4,9 @@ import styles from "./Menu.module.scss";
 
 const cx = classNames.bind(styles);
 
-function Menu({children}) {
+function Menu({className, children}) {
     return ( 
-        <nav className={cx("wrapper")}>
+        <nav className={cx("wrapper") + " " + className}>
             {children}
         </nav>
     );

@@ -8,8 +8,30 @@
     background-color: #16182333;
 }
 
+// .overlay {
+//     display: none;
+// }
+
 .video-wrapper {
     height: calc(450px + ((100vw - 768px) / 1152) * 200);
     aspect-ratio: 0.56/1;
     background-color: gainsboro;
+
+    &:hover {
+        .overlay {
+            display: flex;
+        }
+    }
+}
+
+.progress-wrapper:hover {
+    .circle-progress-bar::after {
+        display: block;
+    }
+    .progress-bar-full {
+        height: 4px;
+    }
+    .progress-bar-btn {
+        display: block;
+    }
 }
