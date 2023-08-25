@@ -9,7 +9,7 @@
     --default-layout-width: 1150px;
     --text-color: #161823;
 
-    --default-font-family: 'ProximaNova', sans-serif;
+    --default-font-family: 'TikTokFont', sans-serif;
 }
 
 * {
@@ -45,18 +45,23 @@ a {
 
 // Font emmbeded
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Regular.woff2');
     font-weight: 400;
 }
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/Proxima-Nova-Semibold.woff2');
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Regular.woff2');
+    font-weight: 500;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Semibold.woff2');
     font-weight: 600;
 }
 @font-face {
-    font-family: ProximaNova;
-    src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Bold.woff2');
     font-weight: 700;
 }
 @font-face {
@@ -72,7 +77,7 @@ html *::-webkit-scrollbar {
 }
 html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: rgba(22, 24, 35, .3);
+    background-color: rgb(22 24 35 / 6%)
 }
 html *::-webkit-scrollbar-track {
     border-radius: 0;

@@ -15,7 +15,7 @@
 }
 
 .inner {
-    padding: 0 24px 0 20px;
+    padding: 0 24px 0 16px;
     width: 100%;
     height: 100%;
     // width: var(--default-layout-width, 1150px);
@@ -27,6 +27,7 @@
 .logo-container {
     display: inline-flex;
     align-items: center;
+    min-width: 300px;
 }
 
 .logo {
@@ -68,7 +69,8 @@
     height: 26px;
 }
 .main-icon-message-wrapper {
-    margin-top: 2px;
+    margin-left: 20px;
+    margin-top: 3px;
     padding: 2px 3px 0 3px;
 }
 .main-icon-inbox {

@@ -8,9 +8,9 @@
     background-color: #16182333;
 }
 
-// .overlay {
-//     display: none;
-// }
+.overlay {
+    display: none;
+}
 
 .video-wrapper {
     height: calc(450px + ((100vw - 768px) / 1152) * 200);
@@ -32,6 +32,22 @@
         height: 4px;
     }
     .progress-bar-btn {
+        display: block;
+    }
+}
+
+.volume-icon-container:hover {
+    .volume-bar-container {
+        display: flex;
+    }
+}
+
+.ui-popup-container {
+    display: none;
+}
+
+.three-dots-btn:hover {
+    .ui-popup-container {
         display: block;
     }
 }

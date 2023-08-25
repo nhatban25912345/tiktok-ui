@@ -86,9 +86,7 @@ function SearchBar() {
                         onFocus={() => setShowResut(true)}
                     />
                     {!!searchValue && !loading && (
-                        <button className={cx('clear')} onClick={handleClearBtn}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
+                        <FontAwesomeIcon className={cx('clear')} icon={faCircleXmark} onClick={handleClearBtn}/>
                     )}
 
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}

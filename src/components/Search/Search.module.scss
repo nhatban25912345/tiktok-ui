@@ -1,6 +1,6 @@
 .search {
     position: relative;
-    width: 361px;
+    width: 500px;
     height: var(--search-height);
     padding-left: 16px;
     border-radius: 92px;
@@ -39,7 +39,7 @@
 }
 
 .search-result {
-    width: 361px;
+    width: 500px;
 }
 
 .search-item {
@@ -52,12 +52,7 @@
 }
 
 .clear {
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: calc((var(--search-height) - 19px) / 2) 16px calc((var(--search-height) - 19px) / 2) 262px;
+    margin: calc((var(--search-height) - 19px) / 2) 12px calc((var(--search-height) - 19px) / 2) 0px;
     width: 16px;
     height: 16px;
     color: rgba(22, 24, 35, 0.34);
@@ -68,9 +63,6 @@
     width: 16px;
     height: 16px;
     color: rgba(22, 24, 35, 0.34);
-}
-
-.loading {
     animation: spinner 1s linear infinite;
 }
 

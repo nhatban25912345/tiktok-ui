@@ -1,0 +1,37 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.tag-wrapper {
+    // padding: 0 48px;
+    max-width: 1104px;
+    width: 100%;
+    width: calc((100vw - 240px) - 96px);
+    position: sticky;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.tag-inner {
+    width: 100%;
+}
+
+.tag {
+    display: block;
+    font-size: 17px;
+    width: fit-content;
+    padding: 8px 12px;
+    color: #161823;
+    background-color: #1618231a;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}

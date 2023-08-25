@@ -8,12 +8,10 @@ function Processbar({ currentTime, duration, video }) {
     const progressWidth = `${Math.round(((video && video.currentTime) || 0) / ((video && video.duration) || 1) * 100)}%`;
 
     return (  
-        <div>
-            <div className={cx("progress-bar-inner") + ` h-full bg-white absolute`} 
-                style={{ width: progressWidth }}
-            >
-                <div className={cx("progress-bar-btn") + ` hidden w-3 h-3 rounded-full bg-white absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 `} />
-            </div>
+        <div className={cx("progress-bar-inner") + ` h-full bg-white absolute`} 
+            style={{ width: progressWidth }}
+        >
+            <div className={cx("progress-bar-btn") + ` hidden w-3 h-3 rounded-full bg-white absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 `} />
         </div>
     );
 }

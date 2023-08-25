@@ -1,5 +1,43 @@
 .wrapper {
-    padding: 20px 0 26px 8px;
-    width: 242px;
+    width: 232px;
     max-width: 348px;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.sidebar-inner {
+    padding: 20px 0 26px 8px;
+    width: 232px;
+    max-width: 348px;
+    height: calc(100vh - var(--default-layout-header-height, 60px));
+    overflow-y: scroll;
+    position: fixed;
+    top: var(--default-layout-header-height, 60px);
+}
+
+.wrapper::-webkit-scrollbar {
+    width: 6px;
+    // display: none;
+}
+
+.wrapper:hover {
+    .wrapper::-webkit-scrollbar {
+        display: block;
+    }
+}
+
+.menu {
+    position: relative;
+}
+
+.menu::before {
+    content: "";
+    width: calc(100% - 16px);
+    height: 1px;
+    position: absolute;
+    bottom: -8px;
+    left: 8px;
+    background-color: #1618231f;
+    transform: scaleY(0.5);
 }

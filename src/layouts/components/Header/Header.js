@@ -20,7 +20,7 @@ import SearchBar from '~/components/Search';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import { InboxIcon, MessageIcon } from '~/components/Icons';
+import { InboxIcon, LaptopMobileIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import config from '~/config';
 
@@ -116,6 +116,13 @@ function Header() {
                             <FontAwesomeIcon className={cx('plus-icon')} icon={faPlus} />
                             <span>Upload</span>
                         </Button>
+                        <Tippy content="Download">
+                            <div className="ml-2">
+                                <Button mainIcon>
+                                    <LaptopMobileIcon className="mt-[5px] text-black" />
+                                </Button>
+                            </div>
+                        </Tippy>
                         <Tippy content="Message">
                             <div className={cx('main-icon-message-wrapper')}>
                                 <Button mainIcon>
@@ -130,6 +137,7 @@ function Header() {
                                 </Button>
                             </div>
                         </Tippy>
+                        
 
                         <Menu items={currentUser ? userMenu : MENU_ITEMS} hideOnClick={false} onChange={HandleMenuChange}>
                             <Image

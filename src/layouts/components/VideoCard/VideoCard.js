@@ -3,14 +3,14 @@ import styles from './VideoCard.module.scss';
 import { Link } from 'react-router-dom';
 import {useRef, useState } from 'react';
 import { convertToMinuteSeconds } from "../../../utils/formatters"
-import posterImg from "../../../assets/images/thumb-video.png"
+import posterImgDefault from "../../../assets/images/thumb-video.png"
 
 // import icon
 import { BsFillCheckCircleFill, BsFillHeartFill, BsFillBookmarkFill } from 'react-icons/bs';
 import { PiMusicNotesSimpleFill } from 'react-icons/pi';
 import { BiSolidShare } from 'react-icons/bi';
 import { FaCommentDots } from 'react-icons/fa';
-// import { FiVolume2 } from 'react-icons/fi';
+import { PiHeartBreak, PiFlagBold } from 'react-icons/pi';
 import { BsThreeDots } from 'react-icons/bs';
 import { IoMdPause } from 'react-icons/io';
 import { PlayIcon, VolumeIcon, VolumeMutedIcon } from '~/components/Icons';
@@ -20,14 +20,15 @@ import Processbar from './components/Processbar';
 
 const cx = classNames.bind(styles);
 
-function VideoCard({src, ...props}) {
+function VideoCard({src, isFollowing = false, posterImg , ...props}) {
 
-    const [isFollowing, setIsFollowing] = useState(false);
+    const [isFollowingState, setIsFollowingState] = useState(isFollowing);
     const [isLoading, setIsLoading] = useState(true);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [videoDuration, setVideoDuration] = useState("00:00");
     const [currentTime, setCurrentTime] = useState("00:00");
+    const [currentVolume, setCurrentVolume] = useState(1);
 
     const videoRef = useRef(null);
     const videoWrapperRef = useRef(null);
@@ -75,6 +76,11 @@ function VideoCard({src, ...props}) {
     }
 
     const handleMuteVolume = () => {
+        if (!isMuted) {
+            videoRef.current.volume = 0;
+        } else {
+            videoRef.current.volume = currentVolume;
+        }
         setIsMuted(prev => !prev);
     }
 
@@ -92,16 +98,28 @@ function VideoCard({src, ...props}) {
         setCurrentTime(convertToMinuteSeconds(newCurrentTime));
     }
 
+    const handleVolumeChange = (e) => {
+        const volumeBarHeight = e.currentTarget.offsetHeight;
+        const clickedPosition = e.nativeEvent.offsetY;
+        console.log(clickedPosition);
+        const newVolume = 1 - clickedPosition / volumeBarHeight; // Invert the value because higher positions should result in lower volume
+    
+        if (videoRef.current) {
+            videoRef.current.volume = newVolume;
+        }
+        setIsMuted(false);
+        setCurrentVolume(newVolume);
+    };
+
     const handleIsFolowing = () => {
-        setIsFollowing(prev => !prev);
+        setIsFollowingState(prev => !prev);
     }
 
     return (
         <div className={cx("wrapper") + " relative w-[692px] py-5 flex flex-row"}>
             <img
                 className="w-[56px] h-[56px] rounded-full object-cover "
-                src={posterImg}
-                // src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/e1b71e2e1f6a212401611d208b82524e~c5_100x100.jpeg?x-expires=1692493200&x-signature=MbDigy5JnZSy8p%2FXyoGRm%2F%2BpAGc%3D"
+                src={posterImg || posterImgDefault}
                 alt="avatar"
             ></img>
             <div className="w-[636px] flex flex-wrap ml-3 relative">
@@ -115,13 +133,22 @@ function VideoCard({src, ...props}) {
                         </div>
                         <span className="text-sm ml-[6px] text-[#161823]">Huy Quần Hoa</span>
                     </Link>
-                    { isFollowing ? <Link className="btn-line-border absolute top-2 right-0 text-[#161823] border-[#1618231f] bg-[#f5f5f5] hover:bg-[#f5f5f5]" onClick={handleIsFolowing}><div>Following</div></Link>
-                    : <Link className="btn-line-border absolute top-2 right-0" onClick={handleIsFolowing}><div>Follow</div></Link>}
+                    {!isFollowing && (
+                    isFollowingState ? (
+                        <Link className="btn-line-border absolute top-2 right-0 text-[#161823] border-[#1618231f] bg-[#f5f5f5] hover:bg-[#f5f5f5]" onClick={handleIsFolowing}>
+                            Following
+                        </Link>
+                    ) : (
+                        <Link className="btn-line-border absolute top-2 right-0" onClick={handleIsFolowing}>
+                            Follow
+                        </Link>
+                    )
+                    )}
                     <div className="">Nay gặp trường hợp bất ngờ quá cũng may có cái tai nghe trừ 
                         <Link to="/"><span className='text-[#2b5db9] font-bold hover:underline mr-[2px]'>#huyquanhoa</span></Link>
                         <Link to="/"><span className='text-[#2b5db9] font-bold hover:underline'>#funny</span></Link>
                     </div>
-                    <Link className="text-sm flex items-center text-[#161823] hover:underline">
+                    <Link className="mb-3 text-sm flex items-center text-[#161823] hover:underline">
                         <PiMusicNotesSimpleFill />
                         <span className='ml-1'>nhạc nền - Huy Quần Hoa</span>
                     </Link>
@@ -135,22 +162,48 @@ function VideoCard({src, ...props}) {
                             muted={isMuted}
                             loop={true}
                             // autoPlay={true}
-                            poster={posterImg}
+                            poster={posterImg || posterImgDefault}
                             {...props}
                         >
                             <source src={src} type="video/mp4"/>
                         </video>
 
-                        <div className={cx("overlay") + ' w-full h-full absolute top-0 left-0 flex flex-wrap flex-col justify-between items-center'}>
-                            <div className='w-[92%] mt-4 text-white flex justify-end cursor-pointer'><BsThreeDots style={{fontSize: "26px"}} /></div>
+                        <div className={cx("overlay") + ' w-full h-full absolute top-0 left-0 flex-wrap flex-col justify-between items-center'}>
+                            <div className='w-[92%] mt-4 text-white flex justify-end cursor-pointer'>
+                                <BsThreeDots className={cx("three-dots-btn")} style={{fontSize: "26px"}} />
+                                <div 
+                                    className={cx("ui-popup-container") + ' w-[200px] py-2 absolute -right-5 translate-x-full top-0 text-black rounded-lg'} 
+                                    style={{boxShadow: "rgba(0, 0, 0, 0.12) 0px 4px 16px"}}
+                                >
+                                    <div className='flex items-center px-4 py-2 font-semibold hover:bg-[#16182308]' >
+                                        <PiHeartBreak className='text-2xl w-6'/>
+                                        <div className='ms-2 text-[15px]'>Not interested</div>
+                                    </div>
+                                    <div className='flex items-center px-4 py-2 font-semibold hover:bg-[#16182308]' >
+                                        <PiFlagBold className='text-2xl w-6'/>
+                                        <div className='ms-2 text-[15px]'>Report</div>
+                                    </div>
+                                </div>
+                            </div>
                             {isLoading ? <div className='text-white'>loading...</div> : null}
                             <div className='w-[92%] flex flex-wrap justify-center'>
                                 <div className='w-full flex justify-between items-center'>
                                     <div className='text-white p-[10px] cursor-pointer text-center' onClick={handlePlayButon}>
                                         { isPlaying ? <IoMdPause style={{fontSize: "20px", marginLeft: "-2px"}} /> : <PlayIcon />}
                                     </div>
-                                    <div className='text-white p-2 cursor-pointer' onClick={handleMuteVolume}>
-                                        { isMuted === true ?  <VolumeMutedIcon /> : <VolumeIcon />}
+                                    <div className={cx("volume-icon-container") + ' text-white p-2 cursor-pointer relative'} >
+                                        <div onClick={handleMuteVolume}>{ isMuted === true ?  <VolumeMutedIcon /> : <VolumeIcon />}</div>
+                                        <div className={cx("volume-bar-container") + ` hidden w-6 h-16 justify-center items-center absolute bottom-full right-1/2 translate-x-1/2 rounded-[32px] bg-[#16182357] `}>
+                                            <div className='w-[2px] h-12 bg-[#ffffff57] cursor-pointer relative' onClick={e => handleVolumeChange(e)}>
+                                                <div 
+                                                    className='w-[2px] bg-white absolute bottom-0' 
+                                                    style={{height: `${isMuted ? 0 : currentVolume*100}%`}}
+                                                    onClick={() => {return false}}
+                                                >
+                                                    <div className='w-3 h-3 rounded-full bg-white absolute top-0 -translate-y-1/2 right-1/2 translate-x-1/2'></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className={cx("progress-wrapper") + ' w-full h-4 mb-3 flex items-center py-1'}>
