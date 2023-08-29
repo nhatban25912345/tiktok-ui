@@ -1,15 +1,19 @@
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
 import { Link } from 'react-router-dom';
-import { BsFillCheckCircleFill, BsThreeDots } from 'react-icons/bs';
+import { BsFacebook, BsFillCheckCircleFill, BsPinterest, BsReddit, BsTelegram, BsThreeDots, BsTwitter } from 'react-icons/bs';
 import { PiFlagBold, PiShareFatBold } from 'react-icons/pi';
 import { LuBan } from 'react-icons/lu';
+import { CodeIcon, LineSocialIcon, MailCircleIcon, UserCheckIcon } from '~/components/Icons';
 import avatarDefault from "~/assets/images/avatar1.jpeg"
-import { UserCheckIcon } from '~/components/Icons';
 
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+
+import { ImLink, ImWhatsapp } from 'react-icons/im';
+import { BiLogoLinkedin } from 'react-icons/bi';
+import ToolTipShareWrapper from '~/components/ToolTipShareWrapper/ToolTipShareWrapper';
 const cx = classNames.bind(styles);
 
 function VideoCard() {
@@ -58,29 +62,9 @@ function VideoCard() {
                 </div>
                 <div className='text-[#161823] mt-[10px] leading-[21px]'>partners@schannel.vn</div>
                 <div className='absolute top-3 right-0 grid grid-cols-2 gap-[18px]'>
-                    <HeadlessTippy
-                        placement="bottom-end"
-                        interactive={true}
-                        offset={[-195, 14]}
-                        delay={[100, 500]}
-                        zIndex={1}
-                        render={(attrs) => (
-                            <div 
-                                className={cx("ui-popup-container") + 
-                                ' w-[280px] py-2 absolute -right-5 translate-x-full top-0 text-black rounded-lg bg-white'} 
-                                style={{boxShadow: "rgba(0, 0, 0, 0.12) 0px 4px 16px"}}
-                                tabIndex="-1" {...attrs}
-                            >
-                                <div className='flex items-center mr-[3px] ml-1 px-4 py-[11px] font-semibold hover:bg-[#16182308]' >
-                                    <PiFlagBold className='w-6'/>
-                                    <div className='ms-3'>Embed</div>
-                                </div>
-                                
-                            </div>
-                        )}
-                    >
-                        <div className='py-1'><PiShareFatBold className='col-span-1 text-2xl' /></div>
-                    </HeadlessTippy>
+                    <ToolTipShareWrapper>
+                        <div className='py-1 cursor-pointer'><PiShareFatBold className='col-span-1 text-2xl' /></div>
+                    </ToolTipShareWrapper>
                     <HeadlessTippy 
                         placement="bottom-end"
                         interactive={true}
@@ -93,12 +77,12 @@ function VideoCard() {
                                 style={{boxShadow: "rgba(0, 0, 0, 0.12) 0px 4px 16px"}}
                                 tabIndex="-1" {...attrs}
                             >
-                                <div className='flex items-center px-4 py-2 font-semibold hover:bg-[#16182308]' >
+                                <div className='flex items-center cursor-pointer px-4 py-2 font-semibold hover:bg-[#16182308]' >
                                     <PiFlagBold className='w-6'/>
                                     <div className='ms-4 text-[15px]'>Report</div>
                                 </div>
                                 <hr></hr>
-                                <div className='flex items-center px-4 py-2 font-semibold hover:bg-[#16182308]' >
+                                <div className='flex items-center cursor-pointer px-4 py-2 font-semibold hover:bg-[#16182308]' >
                                     <LuBan className='w-6'/>
                                     <div className='ms-4 text-[15px]'>Block</div>
                                 </div>
@@ -106,7 +90,7 @@ function VideoCard() {
                             </div>
                         )}
                     >
-                        <div className='py-1'><BsThreeDots className='col-span-1 text-2xl cursor-pointer '/></div>
+                        <div className='py-1'><BsThreeDots className='col-span-1 text-2xl cursor-pointer'/></div>
                      </HeadlessTippy>
                     
                 </div>
