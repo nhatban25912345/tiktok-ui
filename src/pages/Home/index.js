@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
-import VideoCard from '~/layouts/components/VideoCard/VideoCard';
+import VideoCard from '~/components/VideoCard';
 import video1 from "../../assets/video/Video1.mp4"
 import posterImg from "../../assets/images/thumb-video.png"
 

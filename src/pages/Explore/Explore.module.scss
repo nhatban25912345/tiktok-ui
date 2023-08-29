@@ -20,15 +20,12 @@
     flex-direction: column;
 }
 
-.tag-inner {
-    width: 100%;
-}
-
 .tag {
     display: block;
     font-size: 17px;
     width: fit-content;
     padding: 8px 12px;
+    min-height: 41.5px;
     color: #161823;
     background-color: #1618231a;
     border-radius: 8px;

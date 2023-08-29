@@ -17,7 +17,22 @@ const cx = classNames.bind(styles);
 function TagBar() {
 
     const [isActive, setIsActive] = useState(0)
-    const [tags, setTags] = useState([])
+    const [tags, setTags] = useState([{}])
+
+    const [navbarStatus, setNavbarStatus] = useState(true);
+
+    const handleNavbar = () => {
+        if ( window.scrollY >= 70 ) {
+            setNavbarStatus(false)
+        } else {
+            setNavbarStatus(true)
+        }
+    }
+
+    const handleMouseUp = () => {
+        setNavbarStatus(true); 
+        console.log(11111);
+    }
 
     useEffect(() => {
         const getTags = async () => {
@@ -25,14 +40,23 @@ function TagBar() {
             setTags(result.data);
         }
         getTags();
-    })
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleNavbar);
+        window.addEventListener("mouseup", handleMouseUp);
+        return () => { 
+            window.removeEventListener("scroll", handleNavbar);
+            window.removeEventListener("mouseup", handleMouseUp);
+        }
+    },  [])
 
     const handleActive = (key) => {
         setIsActive(key)
     }
 
     return ( 
-        <div className={cx("tag-wrapper") + ' '}>
+        <div className={navbarStatus ? cx("tag-wrapper") : "hidden"}>
             <Swiper 
                 slidesPerView={'auto'}
                 spaceBetween={12}

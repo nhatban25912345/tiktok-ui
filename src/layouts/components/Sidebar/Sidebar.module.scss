@@ -1,27 +1,28 @@
 .wrapper {
-    width: 232px;
     max-width: 348px;
-    height: 100vh;
+    height: calc(100vh - var(--default-layout-header-height, 60px));
     overflow-y: scroll;
     position: relative;
+    margin-right: 6px;
 }
 
 .sidebar-inner {
     padding: 20px 0 26px 8px;
-    width: 232px;
+    // width: 232px;
+    width: 238px;
     max-width: 348px;
-    height: calc(100vh - var(--default-layout-header-height, 60px));
+    height: 100%;
     overflow-y: scroll;
     position: fixed;
     top: var(--default-layout-header-height, 60px);
 }
 
-.wrapper::-webkit-scrollbar {
+.sidebar-inner::-webkit-scrollbar {
     width: 6px;
     // display: none;
 }
 
-.wrapper:hover {
+.sidebar-inner:hover {
     .wrapper::-webkit-scrollbar {
         display: block;
     }

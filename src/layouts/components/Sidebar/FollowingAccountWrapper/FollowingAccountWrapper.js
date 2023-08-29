@@ -2,7 +2,7 @@ import axios from "axios";
 import styles from "./FollowingAccountWrapper.module.scss";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
-import AccountItem from '~/components/AccountFollowingItem';
+import AccountFollowingItem from '~/components/AccountFollowingItem';
 
 const cx = classNames.bind(styles);
 
@@ -23,7 +23,7 @@ function FollowingAccountWrapper() {
         <div className={cx("wrapper")}>
             <div className="w-full px-2 mb-2 text-sm font-semibold text-[#161823bf]">Following accounts</div>
             {userFollowing.slice(0, userQuantity).map((user, key) => 
-                <AccountItem key={key} data={user} />
+                <AccountFollowingItem key={key} data={user} />
             )}
 
             {   

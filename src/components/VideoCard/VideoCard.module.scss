@@ -1,0 +1,65 @@
+.wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #16182333;
+    transform: scale(0.5);
+}
+
+.overlay {
+    display: none;
+}
+
+.video-wrapper {
+    height: calc(450px + ((100vw - 768px) / 1152) * 200);
+    aspect-ratio: 0.56/1;
+    background-color: gainsboro;
+
+    &:hover {
+        .overlay {
+            display: flex;
+        }
+    }
+}
+
+.progress-wrapper:hover {
+    .circle-progress-bar::after {
+        display: block;
+    }
+    .progress-bar-full {
+        height: 4px;
+    }
+    .progress-bar-btn {
+        display: block;
+    }
+}
+
+.volume-icon-container:hover {
+    .volume-bar-container {
+        display: flex;
+    }
+}
+
+.ui-popup-container {
+    display: none;
+}
+
+.three-dots-btn:hover {
+    .ui-popup-container {
+        display: block;
+    }
+}
+
+.title {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    letter-spacing: 0.03px;
+    word-break: break-word;
+
+}

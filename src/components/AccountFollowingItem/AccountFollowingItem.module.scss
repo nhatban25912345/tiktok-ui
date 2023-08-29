@@ -8,7 +8,6 @@
     &:hover {
         background: rgba(22, 24, 35, 0.03);
     }
-
 }
 
 .avatar {
@@ -16,28 +15,36 @@
     width: 32px;
     height: 32px;
     display: block;
-    border-radius:  50%;
+    border-radius: 50%;
     object-fit: cover;
 }
 
 .name {
     height: 18px;
-    line-height: 14px;
+    line-height: 18px;
+    margin-top: -2px;
     font-weight: 700;
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .icon-check {
     margin: 0 0 0 4px;
     width: 14px;
     height: 14px;
-    color: #20D5EC;
+    color: #20d5ec;
 }
 
 .username {
-    height: 14px;
     font-size: 12px;
+    height: 14px;
     line-height: 14px;
+    margin-top: 2px;
     color: rgba(22, 24, 35, 0.75);
     font-weight: 400;
     overflow: hidden;
