@@ -1,5 +1,14 @@
 .wrapper {
     padding: 20px 0 26px 8px;
     width: 348px;
-    
+}
+.content::before {
+    margin: 0 8px 0 8px;
+    position: absolute;
+    content: "";
+    display: block;
+    width: 324px;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    transform: scaleY(0.5);
 }

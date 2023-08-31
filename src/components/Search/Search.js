@@ -33,7 +33,6 @@ function SearchBar() {
             setLoading(true);
             const result = await searchService.search(debouncedValue, 'less');
             setSearchResult(result);
-
             setLoading(false);
         };
 
