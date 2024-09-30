@@ -16,6 +16,8 @@ import { IoMdPause } from 'react-icons/io';
 import { PlayIcon, VolumeIconLight, VolumeMutedIcon } from '~/components/Icons';
 import { useEffect } from 'react';
 import Processbar from './components/Processbar';
+import ToolTipShareWrapper from '../ToolTipShareWrapper/ToolTipShareWrapper';
+import ActionBar from '~/components/VideoCard/components/ActionBar';
 
 
 const cx = classNames.bind(styles);
@@ -90,6 +92,7 @@ function VideoCard({src, isFollowing = false, posterImg , ...props}) {
         }
         const progressBar = e.currentTarget;
         const clickedPosition = e.nativeEvent.offsetX;
+        // console.log("clickedPosition: ", clickedPosition);
         const progressBarWidth = progressBar.offsetWidth;
         const percentageClicked = (clickedPosition / progressBarWidth) * 100;
         
@@ -217,24 +220,7 @@ function VideoCard({src, isFollowing = false, posterImg , ...props}) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col">
-                        <Link className="w-12 flex-col">
-                            <div className="w-12 h-12 my-[10px] rounded-full bg-[#1618230f] flex justify-center items-center text-[22px]"><BsFillHeartFill /></div>
-                            <div className="w-full text-sm font-bold text-[#161823bf]">451.4K</div>
-                        </Link>
-                        <Link className="w-12 flex-col">
-                            <div className="w-12 h-12 my-[10px] rounded-full bg-[#1618230f] flex justify-center items-center text-[22px]"><FaCommentDots /></div>
-                            <div className="w-full text-sm font-bold text-[#161823bf]">15.2K</div>
-                        </Link>
-                        <Link className="w-12 flex-col">
-                            <div className="w-12 h-12 my-[10px] rounded-full bg-[#1618230f] flex justify-center items-center text-[22px]"><BsFillBookmarkFill /></div>
-                            <div className="w-full text-sm font-bold text-[#161823bf]">18.4K</div>
-                        </Link>
-                        <Link className="w-12 flex-col">
-                            <div className="w-12 h-12 my-[10px] rounded-full bg-[#1618230f] flex justify-center items-center text-[26px]"><BiSolidShare style={{transform: "rotateY( 180deg)"}}/></div>
-                            <div className="w-full text-sm font-bold text-[#161823bf]">485.2K</div>
-                        </Link>
-                    </div>
+                    <ActionBar />
                 </div>
             </div>
         </div>

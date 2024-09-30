@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { useDebounce } from '~/Hooks';
+import { useDebounce } from '../../hooks/index';
 
 import * as searchService from '~/services/searchService';
 import { Wrapper as PropperWrapper } from '~/components/Popper';
@@ -69,7 +69,7 @@ function SearchBar() {
                         <PropperWrapper>
                             <h4 className={cx('search-item')}>Accounts</h4>
                             {searchResult.map((result, index) => (
-                                <AccountItem key={index} data={result} />
+                                <AccountItem key={index} data={result}/>
                             ))}
                         </PropperWrapper>
                     </div>
@@ -86,7 +86,7 @@ function SearchBar() {
                         onFocus={() => setShowResut(true)}
                     />
                     {!!searchValue && !loading && (
-                        <FontAwesomeIcon className={cx('clear')} icon={faCircleXmark} onClick={handleClearBtn}/>
+                        <FontAwesomeIcon className={cx('clear')} icon={faCircleXmark} onClick={handleClearBtn} />
                     )}
 
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
